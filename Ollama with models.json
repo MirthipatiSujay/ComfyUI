@@ -1,0 +1,534 @@
+{
+  "id": "83617b2d-a308-4981-8817-412687730393",
+  "revision": 0,
+  "last_node_id": 17,
+  "last_link_id": 35,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        660.6879272460938,
+        157.2503662109375
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 13
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 14
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 15
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            17
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        361936763057785,
+        "randomize",
+        35,
+        7,
+        "dpmpp_2m",
+        "karras",
+        1
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1006.68798828125,
+        159.2503662109375
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 17
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            29
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        200.97518920898438,
+        146.70889282226562
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 11
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Architecture Photography, eiffel tower, azure and red tones, photo 4k, art work, bright day, 6 k"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        199.65374755859375,
+        204.7852020263672
+      ],
+      "size": [
+        425.27801513671875,
+        180.6060791015625
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "(worst quality, low quality, normal quality, lowres, low details, oversaturated, undersaturated, overexposed, underexposed, grayscale, bw, bad photo, bad photography, bad art:1.4), (watermark, signature, text font, username, error, logo, words, letters, digits, autograph, trademark, name:1.2), (blur, blurry, grainy), morbid, ugly, asymmetrical, mutated malformed, mutilated, poorly lit, bad shadow, draft, cropped, out of frame, cut off, censored, jpeg artifacts, out of focus, glitch, duplicate, (airbrushed, cartoon, anime, semi-realistic, cgi, render, blender, digital art, manga, amateur:1.3), (3D ,3D Game, 3D Game Scene, 3D Character:1.1), (bad hands, bad anatomy, bad body, bad face, bad teeth, bad arms, bad legs, deformities:1.3)"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 17,
+      "type": "easy showAnything",
+      "pos": [
+        254.4133758544922,
+        546.1658325195312
+      ],
+      "size": [
+        264.15570068359375,
+        143.12808227539062
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "1.3.0",
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "(I adjust my spectacles, a small, thoughtful smile playing on my lips)\n\nAh, a portrait of a woman with blue eyes and black hair… it’s a remarkably classic and endlessly fascinating subject. It’s a combination that has captivated artists and viewers for centuries, and for very good reason. Let’s delve into why this image holds such enduring appeal and the myriad ways it can be approached. \n\nFirstly, the color pairing itself is inherently striking. The intense, often luminous, quality of blue eyes – think of Vermeer’s “Girl with a Pearl Earring,” or the soulful gaze of Rembrandt’s portraits – is almost universally captivating. It's a color that speaks of depth, emotion, and a certain vulnerability. Juxtaposed with the starkness and richness of black hair, it creates a powerful visual contrast, demanding attention. \n\nNow, the *way* that contrast is rendered is where the true artistry lies. There’s a vast spectrum of approaches. \n\n**Historically, we have the Dutch Masters to consider.** Rembrandt, of course, was a master of chiaroscuro – the dramatic use of light and shadow – and he would have utilized this technique to emphasize the intensity of those blue eyes, perhaps catching a glimmer of light reflecting off their surface. Notice how he wouldn't simply paint *blue* – he’d build the color from layers of browns, grays, and even subtle greens to create a depth and realism that’s simply breathtaking. \n\n**Then we move to the Romantic era.** Think of artists like Turner – his influence often seeped into portraiture – and the emphasis on capturing the *feeling* of the subject, the inner turmoil or serenity reflected in her expression. The black hair, in this context, might be rendered with a looser, more expressive brushstroke, contributing to a sense of drama and passion. \n\n**In the 20th century, we see a shift.**  Consider the influence of Cubism – perhaps a fragmented portrayal, focusing on the geometry of the face, or Surrealism – introducing dreamlike elements and symbolic representations. \n\n**And let’s not forget the importance of the sitter’s expression.** Is she gazing directly at the viewer, inviting connection? Or is she lost in thought, a subtle melancholy in her eyes? The artist's skill lies in conveying not just the physical appearance, but the *essence* of the woman. \n\nUltimately, a portrait of a woman with blue eyes and black hair is a blank canvas for the artist's interpretation. It’s a challenge to capture not just a likeness, but a moment, a feeling, a story.  \n\n(I pause, considering) \n\nTo truly appreciate the nuances, one must consider the period, the artist’s stylistic choices, and, of course, the subtle details of the execution – the texture of the hair, the softness of the skin, the way the light plays across her face. \n\nDo you perhaps have a particular period or artistic style in mind that you’d like me to elaborate on?  Or perhaps you’re interested in a specific technique, like sfumato – the blurring of edges that Leonardo da Vinci so masterfully employed – to soften the features and create a sense of mystery?"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        1012.727783203125,
+        246.8187255859375
+      ],
+      "size": [
+        576.5040893554688,
+        601.47216796875
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 29
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "Woman"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        675.3683471679688,
+        515.8921508789062
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -212.6216583251953,
+        261.35931396484375
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            13
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            11,
+            12
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 2,
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "Juggernaut_X_RunDiffusion.safetensors"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 16,
+      "type": "OllamaGenerateAdvance",
+      "pos": [
+        -219.9550323486328,
+        412.6399841308594
+      ],
+      "size": [
+        400,
+        498
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "context",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            34,
+            35
+          ]
+        },
+        {
+          "name": "context",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "2.0.4",
+        "Node name for S&R": "OllamaGenerateAdvance"
+      },
+      "widgets_values": [
+        "a portrait of a woman with blue eyes and black hair",
+        false,
+        "http://127.0.0.1:11434",
+        "gemma3:latest",
+        "cinematic, black background",
+        1115239718,
+        "randomize",
+        40,
+        0.9,
+        0.8,
+        -1,
+        1,
+        5,
+        false,
+        "text",
+        true
+      ]
+    }
+  ],
+  "links": [
+    [
+      11,
+      4,
+      1,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      12,
+      4,
+      1,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      13,
+      4,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      14,
+      6,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      15,
+      7,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      16,
+      5,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      17,
+      3,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      18,
+      4,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      29,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      34,
+      16,
+      0,
+      6,
+      1,
+      "STRING"
+    ],
+    [
+      35,
+      16,
+      0,
+      17,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.18.10",
+    "groupNodes": {}
+  },
+  "version": 0.4
+}
